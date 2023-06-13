@@ -47,7 +47,7 @@ def encode(origin_bytes):
     return resp
 def verify(arg):
     url = arg + "/seeyon/htmlofficeservlet"
-    tmp_random_str = ''.join(random.sample(string.letters+string.digits, 10))
+    tmp_random_str = ''.join(random.sample(string.ascii_letters+string.ascii_digits, 10))
     headers = {
         "Pragma": "no-cache",
         "Cache-Control": "no-cache",
