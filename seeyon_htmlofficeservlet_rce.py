@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import time
 import sys
@@ -85,6 +85,6 @@ def verify(arg):
         if code==200 and tmp_random_str[1:] in content:
             info['status'] = True
             info['result'] = "{} 可直接getshell, 测试文件路径: {}".format(arg,upfile_url)
-            print info
+            print(info)
 if __name__=="__main__":
     verify(sys.argv[1])
