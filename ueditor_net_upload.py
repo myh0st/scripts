@@ -17,7 +17,7 @@ def upload(url, shellpath):
     info = req.json()
     print(info)
     if info['state'] == 'SUCCESS':
-        print('[+] 上传成功！ 请查看响应包内容！',  site+"/ueditor/net/" + info['list'][0]['url'])
+        print('[+] 上传成功！ 请查看响应包内容！',  url.replace("controller.ashx" ,info['list'][0]['url']))
   
         
         
