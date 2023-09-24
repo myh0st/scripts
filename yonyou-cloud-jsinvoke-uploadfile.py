@@ -58,5 +58,4 @@ def check_vuln(site):
 		
 if __name__ == '__main__':
     target = sys.argv[1]
-    print("Microsoft Windows [版本 10.0.19044.3086]\n(c) Microsoft Corporation。保留所有权利。\n\nD:\VulnSubmit\script>python3 yonyou-cloud-jsinvoke-uploadfile.py ",target)
     check_vuln(target)
