@@ -29,7 +29,6 @@ def verify(site):
 
 if __name__=="__main__":
     target = sys.argv[1]
-    print("Microsoft Windows [版本 10.0.19044.3086]\n(c) Microsoft Corporation。保留所有权利。\n\nD:\VulnSubmit\script>python3 yonyou-chanjet-tplus-read-file.py ",target)
     info = verify(target)
     if info != "":
         print("[+]漏洞存在，执行读取文件 web.config 的内容结果为：\n", info)
