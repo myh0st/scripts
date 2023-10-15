@@ -17,7 +17,7 @@ def verify(site):
     burp0_headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2866.71 Safari/537.36"}
     r = requests.get(burp0_url, headers=burp0_headers, verify=False)
     #print(r.text)
-    if "api_status" in r.text and r.status_code == 200:
+    if "Microsoft" in r.text and r.status_code == 200:
         return r.text
     return ""
  
