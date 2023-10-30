@@ -17,6 +17,7 @@ data = "action=login&pp123=phpinfo();"
 regular = "(PHP Version [0-9\.]+)"
 
 def verify(url):
+    url = url + "/user.php"
     try:
         """
         检测逻辑，漏洞存在则修改vuln值为True，漏洞不存在则不动
