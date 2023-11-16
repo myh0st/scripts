@@ -29,6 +29,6 @@ if __name__=="__main__":
     target = sys.argv[1]
     info = verify(target)
     if info != "":
-        print("[+]漏洞存在，获取数据库名称为：", info)
+        print("[+]漏洞存在，获取数PHP版本为：", info)
     else:
         print("[-]漏洞不存在")
