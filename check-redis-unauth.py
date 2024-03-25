@@ -16,7 +16,7 @@ urllib3.disable_warnings()
 
 
 def verify(site):
-    HOST, port = site.split(":")
+    HOST, port = site.split("/")[2].split(":")
     sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     sock.settimeout(1)
     try:
