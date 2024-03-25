@@ -78,6 +78,6 @@ if __name__=="__main__":
     target = sys.argv[1]
     info = verify(target)
     if info != "":
-        print("[+]漏洞存在，未授权读取到的部分内容为：", info)
+        print("[+]漏洞存在，未授权读取到的部分内容为：", info[:1000])
     else:
         print("[-]漏洞不存在")
