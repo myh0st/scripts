@@ -7,7 +7,7 @@ from pymongo import MongoClient
 
 
 def verify(site):
-    ip = site.split("/")[2]
+    ip = site.split("/")[2].split(":")[0]
     try:
         client = MongoClient(ip,27017,connectTimeoutMS=1000,socketTimeoutMS=1000,waitQueueTimeoutMS=1000)
         try:
