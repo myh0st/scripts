@@ -36,7 +36,7 @@ def verify(url, shellpath):
 if __name__=="__main__":
     url = sys.argv[1]
     imgpath = sys.argv[2]
-    info = verify(target, imgpath)
+    info = verify(url, imgpath)
     if info != "":
         print("[+]漏洞存在，文件上传的地址为：", info)
     else:
