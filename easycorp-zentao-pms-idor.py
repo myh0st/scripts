@@ -37,7 +37,7 @@ def verify(site):
         burp0_headers["Cookie"] = r1.headers["Set-Cookie"]
         data = {"account": "usertest", "password": "Apple@@Web11Kit", "realname": "测试用户"}
         r2 = requests.post(burp2_url, data=data, headers=burp0_headers, verify=False)
-        if "error" not in r2.json() or r2.json()["error"] != "Unauthorized":
+        if "error" not in r2.json() or ("error" in r2.json()  and  r2.json()["error"] != "Unauthorized"):
             return "usertest:Apple&&Web11Kit"
     return ""
 
