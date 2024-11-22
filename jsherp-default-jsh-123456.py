@@ -49,4 +49,4 @@ def check_login(site):
 if __name__=="__main__":
     target = sys.argv[1]
     print("Microsoft Windows [版本 10.0.19044.3086]\n(c) Microsoft Corporation。保留所有权利。\n\nD:\VulnSubmit\script>python3 jsherp-default-jsh-123456.py ",target)
-    verify(target)
+    check_login(target)
