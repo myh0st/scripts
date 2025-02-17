@@ -31,7 +31,7 @@ def verify(vulnurl):
         r = requests.get(vulnurl, headers=headers, verify=False, timeout=10)
         #print(r.text)
         if "nvarchar" in r.text:
-            info = re.findall("'N'([^']+)'", r.text)
+            info = re.findall("nvarchar(.*)int", r.text)
             if len(info) != 0:
                 return info[0]
     except:
