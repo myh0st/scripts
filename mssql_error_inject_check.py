@@ -32,7 +32,7 @@ def verify(vulnurl):
         #print(r.text)
         if "nvarchar" in r.text:
             info = re.findall("nvarchar(.*)int", r.text)
-            if len(info) != 0:
+            if len(info) != 0 and "fn_sqlvarbasetostr" not in info[0]:
                 return info[0]
     except:
         #print(sys.exc_info())
